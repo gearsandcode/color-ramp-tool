@@ -1,0 +1,73 @@
+{
+  "root": "apps/color-ramp-tool",
+  "sourceRoot": "apps/color-ramp-tool/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/color-ramp-tool",
+        "index": "apps/color-ramp-tool/src/index.html",
+        "baseHref": "/",
+        "main": "apps/color-ramp-tool/src/main.tsx",
+        "polyfills": "apps/color-ramp-tool/src/polyfills.ts",
+        "tsConfig": "apps/color-ramp-tool/tsconfig.app.json",
+        "assets": [
+          "apps/color-ramp-tool/src/favicon.ico",
+          "apps/color-ramp-tool/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/color-ramp-tool/src/environments/environment.ts",
+              "with": "apps/color-ramp-tool/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "color-ramp-tool:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "color-ramp-tool:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/color-ramp-tool/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/color-ramp-tool"],
+      "options": {
+        "jestConfig": "apps/color-ramp-tool/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

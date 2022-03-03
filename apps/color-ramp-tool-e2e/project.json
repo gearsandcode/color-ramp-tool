@@ -1,0 +1,28 @@
+{
+  "root": "apps/color-ramp-tool-e2e",
+  "sourceRoot": "apps/color-ramp-tool-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/color-ramp-tool-e2e/cypress.json",
+        "devServerTarget": "color-ramp-tool:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "color-ramp-tool:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/color-ramp-tool-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["color-ramp-tool"]
+}

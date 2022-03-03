@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "color-ramp-tool": "apps/color-ramp-tool",
+    "color-ramp-tool-e2e": "apps/color-ramp-tool-e2e"
+  }
+}
