@@ -9,7 +9,7 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/color-ramp-tool",
+        "outputPath": "dist",
         "index": "apps/color-ramp-tool/src/index.html",
         "baseHref": "/",
         "main": "apps/color-ramp-tool/src/main.tsx",
