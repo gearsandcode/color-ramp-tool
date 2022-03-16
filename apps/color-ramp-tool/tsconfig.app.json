@@ -20,5 +20,6 @@
     "**/*.spec.jsx",
     "**/*.test.jsx"
   ],
+  "composite": true,
   "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"]
 }
