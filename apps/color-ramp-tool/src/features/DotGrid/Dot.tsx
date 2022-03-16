@@ -1,9 +1,14 @@
+import React from "react";
 import { IColor } from "../../util/generateColor";
 import { grayScaleLab, grayScaleRgb } from "../../util/grayScaleHex";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import "./Dot.scss";
 
 function Dot({ color }: { color: IColor }) {
+  const [copyValue] = React.useState(color.hex);
+  const [copyState, setCopyState] = React.useState(false); // Use later for a toast
+
   const tipColor = color.grayFiltered ? color.grayscale : color.hex;
   const tipRgb = color.grayFiltered
     ? grayScaleRgb({ r: color.rgb.r, g: color.rgb.g, b: color.rgb.b })
@@ -19,20 +24,22 @@ function Dot({ color }: { color: IColor }) {
     lab(${tipLab}})
   `;
   return (
-    <span
-      className={color.rampFiltered ? "dot" : "dot hover-target"}
-      style={{
-        backgroundColor: color.rampFiltered
-          ? "#fff"
-          : color.grayFiltered
-          ? color.grayscale
-          : color.hex,
-      }}
-      data-clipboard-text={color.hex}
-      data-tip={color.rampFiltered ? "" : tip}
-      data-multiline="true"
-      data-for="grid-tooltip"
-    />
+    <CopyToClipboard text={copyValue} onCopy={() => setCopyState(true)}>
+      <span
+        className={color.rampFiltered ? "dot" : "dot hover-target"}
+        style={{
+          backgroundColor: color.rampFiltered
+            ? "#fff"
+            : color.grayFiltered
+            ? color.grayscale
+            : color.hex,
+        }}
+        data-clipboard-text={color.hex}
+        data-tip={color.rampFiltered ? "" : tip}
+        data-multiline="true"
+        data-for="grid-tooltip"
+      />
+    </CopyToClipboard>
   );
 }
 
