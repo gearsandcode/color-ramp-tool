@@ -10,10 +10,12 @@ export type TGrid = {
 };
 
 export type TGridState = {
+  grayscaleFilter?: boolean;
   list: TGrid[];
 };
 
 const initialState = {
+  grayscaleFilter: false,
   list: [],
 } as TGridState;
 
@@ -52,8 +54,23 @@ export const DotGridSlice = createSlice({
       });
       return Object.assign(state);
     },
-    removeRampFilter(state) {
+    removeRampFilter(state: TGridState) {
       state.list.map((stateItem) => (stateItem.color.rampFiltered = false));
+    },
+    applyGrayscaleFilter(state: TGridState) {
+      state.list.map((stateItem) => (stateItem.color.grayFiltered = true));
+      state.grayscaleFilter = true;
+    },
+    removeGrayscaleFilter(state: TGridState) {
+      state.list.map((stateItem) => (stateItem.color.grayFiltered = false));
+      state.grayscaleFilter = false;
+    },
+    toggleGrayscale(state) {
+      console.log(!state.grayscaleFilter);
+      return {
+        ...state,
+        grayscaleFilter: !state.grayscaleFilter,
+      };
     },
   },
 });
@@ -61,8 +78,18 @@ export const DotGridSlice = createSlice({
 export const selectGrid = (state: RootState) => {
   return [...state.grid.list];
 };
+export const selectGrayscaleActive = (state: RootState) => {
+  return state.grid.grayscaleFilter;
+};
 export const selectRampById = (state: RootState, rampId: string) =>
   state.ramp.list.find((ramp) => ramp.id === rampId);
-export const { resetGrid, updateGrid, applyRampFilter, removeRampFilter } =
-  DotGridSlice.actions;
+export const {
+  resetGrid,
+  updateGrid,
+  applyRampFilter,
+  removeRampFilter,
+  toggleGrayscale,
+  applyGrayscaleFilter,
+  removeGrayscaleFilter,
+} = DotGridSlice.actions;
 export default DotGridSlice.reducer;

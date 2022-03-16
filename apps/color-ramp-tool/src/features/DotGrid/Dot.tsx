@@ -14,7 +14,13 @@ function Dot({ color }: { color: IColor }) {
   return (
     <span
       className={color.rampFiltered ? "dot" : "dot hover-target"}
-      style={{ backgroundColor: color.rampFiltered ? "#fff" : color.hex }}
+      style={{
+        backgroundColor: color.rampFiltered
+          ? "#fff"
+          : color.grayFiltered
+          ? color.grayscale
+          : color.hex,
+      }}
       data-clipboard-text={color.hex}
       data-tip={color.rampFiltered ? "" : tip}
       data-multiline="true"

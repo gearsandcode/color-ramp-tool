@@ -10,6 +10,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import CloseIcon from "@mui/icons-material/Close";
 import SegmentIcon from "@mui/icons-material/Segment";
 import IconButton from "@mui/material/IconButton";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import {
   selectRampList,
@@ -118,6 +119,7 @@ export const RampControls = () => {
           aria-expanded={openMenu ? "true" : undefined}
           onClick={handleClick}
           startIcon={<SegmentIcon />}
+          endIcon={<KeyboardArrowDownIcon />}
         >
           Ramps
         </Button>

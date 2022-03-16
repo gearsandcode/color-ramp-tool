@@ -1,6 +1,7 @@
 import chroma from "chroma-js";
+import grayScaleHex from "./grayScaleHex";
 
-interface hsvColor {
+export interface hsvColor {
   h: number;
   s: number;
   v: number;
@@ -12,7 +13,7 @@ interface labColor {
   b: number;
 }
 
-interface rgbColor {
+export interface rgbColor {
   r: number;
   g: number;
   b: number;
@@ -23,7 +24,9 @@ export interface IColor {
   hex: string;
   lab: labColor;
   rgb: rgbColor;
+  grayscale: string;
   rampFiltered?: boolean;
+  grayFiltered?: boolean;
   wcagFiltered?: boolean;
 }
 
@@ -43,5 +46,6 @@ export default function generateColor({ h, s, v }: hsvColor): IColor {
     hex,
     lab: { l: round(labL), a: round(labA), b: round(labB) },
     rgb: { r, g, b },
+    grayscale: grayScaleHex({ h, s, v }),
   };
 }
