@@ -4,7 +4,7 @@ import HueControls from "../Hue/HueControls";
 import { RampControls } from "../Ramps/RampControls";
 import { DotGridControls } from "../DotGrid/DotGridControls";
 
-export const ColorControls = () => {
+export const Controls = () => {
   return (
     <Grid container>
       <Grid item>

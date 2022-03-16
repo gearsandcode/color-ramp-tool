@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 import { DotGrid } from "../features/DotGrid/DotGrid";
-import { ColorControls } from "../features/ColorControls/ColorControls";
+import { Controls } from "../features/Controls/Controls";
 
 interface AppProps {
   hueValue?: string;
@@ -23,14 +23,14 @@ export default function App(props: AppProps) {
         </Grid>
         <Grid container item sx={{ pl: 2, pt: 2 }}>
           <Grid item sx={{ pl: 3 }}>
-            <ColorControls></ColorControls>
+            <Controls></Controls>
           </Grid>
         </Grid>
         {/* 
         <Grid container item spacing={3} xs={12}></Grid> */}
 
         <Grid item xs="auto">
-          {/* <ColorControls
+          {/* <Controls
             hueValue={hueValue}
             handleHueValueChange={this.handleHueValueChange}
             handleHueSubmit={this.handleHueSubmit}
