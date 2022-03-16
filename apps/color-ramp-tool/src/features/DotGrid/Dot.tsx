@@ -34,7 +34,7 @@ function Dot({ color }: { color: IColor }) {
         ? color.grayscale
         : color.hex,
       cursor: "pointer",
-      boxShadow: `0px 0px 0px 6px ${color.hex}, 0 0 0 10px #000`,
+      boxShadow: `0px 0px 0px 4px ${color.hex}, 0 0 0 6px #000`,
       zIndex: 100,
     };
   } else {
