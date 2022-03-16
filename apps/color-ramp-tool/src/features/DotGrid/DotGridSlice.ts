@@ -66,7 +66,6 @@ export const DotGridSlice = createSlice({
       state.grayscaleFilter = false;
     },
     toggleGrayscale(state) {
-      console.log(!state.grayscaleFilter);
       return {
         ...state,
         grayscaleFilter: !state.grayscaleFilter,

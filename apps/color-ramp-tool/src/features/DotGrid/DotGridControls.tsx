@@ -28,7 +28,6 @@ export const DotGridControls = () => {
   const [grayscaleActive, setGrayscaleActive] = React.useState(false);
 
   useEffect(() => {
-    console.log(SGrayscaleActive);
     if (SGrayscaleActive) {
       dispatch(applyGrayscaleFilter());
     } else {
