@@ -12,13 +12,10 @@
         "outputPath": "dist",
         "index": "apps/color-ramp-tool/src/index.html",
         "baseHref": "/",
-        "main": "apps/color-ramp-tool/src/main.tsx",
+        "main": "apps/color-ramp-tool/src/index.tsx",
         "polyfills": "apps/color-ramp-tool/src/polyfills.ts",
         "tsConfig": "apps/color-ramp-tool/tsconfig.app.json",
-        "assets": [
-          "apps/color-ramp-tool/src/favicon.ico",
-          "apps/color-ramp-tool/src/assets"
-        ],
+        "assets": ["apps/color-ramp-tool/src/favicon.ico"],
         "styles": [],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"

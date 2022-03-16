@@ -1,47 +1,55 @@
-import styled from '@emotion/styled';
-import ColorGrid from '../components/color-grid/color-grid';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import "./App.scss";
 
-const StyledApp = styled.div`
-  // Your style here
-`;
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 
-export function App() {
-  return (
-    <Router>
-      <StyledApp>
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Color Ramp Tools
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <Switch>
-          <Route path="/">
-            <ColorGrid/>
-          </Route>
-        </Switch>
-      </Box>
-      </StyledApp>
-    </Router>
-  );
+import { DotGrid } from "../features/DotGrid/DotGrid";
+import { ColorControls } from "../features/ColorControls/ColorControls";
+
+interface AppProps {
+  hueValue?: string;
 }
 
-export default App;
+export default function App(props: AppProps) {
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <Typography variant="h6" component="h1" sx={{ pl: 3, pt: 1 }}>
+            Color Ramp Tool
+          </Typography>
+        </Grid>
+        <Grid container item sx={{ pl: 2, pt: 2 }}>
+          <Grid item sx={{ pl: 3 }}>
+            <ColorControls></ColorControls>
+          </Grid>
+        </Grid>
+        {/* 
+        <Grid container item spacing={3} xs={12}></Grid> */}
+
+        <Grid item xs="auto">
+          {/* <ColorControls
+            hueValue={hueValue}
+            handleHueValueChange={this.handleHueValueChange}
+            handleHueSubmit={this.handleHueSubmit}
+            showColorRamps={showColorRamps}
+            handleColorRampsChange={this.handleColorRampsChange}
+            colorRampStyle={colorRampStyle}
+            handleColorRampStyleChange={this.handleColorRampStyleChange}
+          /> */}
+          {/* <WcagControls
+            fontSize={fontSize}
+            handleFontSizeChange={this.handleFontSizeChange}
+            showWcagContrast={showWcagContrast}
+            handleWcagContrastChange={this.handleWcagContrastChange}
+          /> */}
+        </Grid>
+        <Grid item xs>
+          <DotGrid></DotGrid>
+        </Grid>
+      </Grid>
+    </Box>
+  );
+}

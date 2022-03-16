@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Define the "system" font family */
+@font-face {
+  font-family: system;
+  font-style: normal;
+  font-weight: 300;
+  src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"),
+    local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"),
+    local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+}
+
+body {
+  font-family: "system";
+  margin: 1rem;
+}
+
+.layout-grid {
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 300px auto;
+}
+
+.form-grid {
+  display: grid;
+  grid-gap: 1rem;
+  grid-auto-rows: min-content;
+}
+
+h1 {
+  margin: 0;
+}
+
+fieldset {
+  border: 1px dashed #000;
+  padding: 1rem;
+  margin: 0;
+
+  legend {
+    font-size: 0.875rem;
+    font-weight: bold;
+    padding: 0 0.5rem;
+  }
+
+  fieldset {
+    margin: 1rem 0;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-top: 1rem;
+    width: 100%;
+
+    thead {
+      border-bottom: 1px dashed #000;
+
+      th {
+        padding: 0.25rem 0;
+      }
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: #eee;
+    }
+
+    th,
+    td {
+      text-align: center;
+    }
+  }
+}
+
+input[type="checkbox"]:disabled + label {
+  color: #bbb;
+}
+
+.colorBlock {
+  background: rgb(255, 255, 255);
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  display: flex;
+  margin: 0 0 0 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  font-size: 0px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  &.small {
+    width: 20px;
+    height: 20px;
+  }
+  &.color-picker:hover {
+    cursor: pointer;
+  }
+}
