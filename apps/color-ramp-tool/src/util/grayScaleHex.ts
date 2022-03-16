@@ -10,7 +10,7 @@ export function grayScaleHex({ h, s, v }: hsvColor): string {
 
 export function grayScaleRgb({ r, g, b }: rgbColor): string {
   const gray = r * 0.3 + g * 0.59 + b * 0.11;
-  return `${r}, ${g}, ${b}`;
+  return `${Math.round(gray)}, ${Math.round(gray)}, ${Math.round(gray)}`;
 }
 
 export function grayScaleLab({ r, g, b }: rgbColor): string {
