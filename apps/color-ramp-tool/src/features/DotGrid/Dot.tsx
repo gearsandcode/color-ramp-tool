@@ -1,15 +1,22 @@
 import { IColor } from "../../util/generateColor";
+import { grayScaleLab, grayScaleRgb } from "../../util/grayScaleHex";
 
 import "./Dot.scss";
 
 function Dot({ color }: { color: IColor }) {
+  const tipColor = color.grayFiltered ? color.grayscale : color.hex;
+  const tipRgb = color.grayFiltered
+    ? grayScaleRgb({ r: color.rgb.r, g: color.rgb.g, b: color.rgb.b })
+    : `${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}`;
+  const tipLab = color.grayFiltered
+    ? grayScaleLab({ r: color.rgb.r, g: color.rgb.g, b: color.rgb.b })
+    : `${color.lab.l}, ${color.lab.a}, ${color.lab.b}`;
   const tip = `
-    ${color.hex}
+    ${tipColor}
     <br/>
-    rgb(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b})
+    rgb(${tipRgb})
     <br/>
-    lab(${color.lab.l}, ${color.lab.a}, ${color.lab.b}
-  })
+    lab(${tipLab}})
   `;
   return (
     <span
