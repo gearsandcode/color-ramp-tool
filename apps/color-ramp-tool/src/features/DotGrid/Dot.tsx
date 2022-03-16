@@ -8,6 +8,7 @@ import "./Dot.scss";
 function Dot({ color }: { color: IColor }) {
   const [copyValue] = React.useState(color.hex);
   const [copyState, setCopyState] = React.useState(false); // Use later for a toast
+  const [hoverState, setHoverState] = React.useState(false); // Use later for a toast
 
   const tipColor = color.grayFiltered ? color.grayscale : color.hex;
   const tipRgb = color.grayFiltered
@@ -23,22 +24,47 @@ function Dot({ color }: { color: IColor }) {
     <br/>
     lab(${tipLab}})
   `;
+
+  var linkStyle;
+  if (hoverState) {
+    linkStyle = {
+      backgroundColor: color.rampFiltered
+        ? "#fff"
+        : color.grayFiltered
+        ? color.grayscale
+        : color.hex,
+      cursor: "pointer",
+      boxShadow: `0px 0px 0px 6px ${color.hex}, 0 0 0 10px #000`,
+      zIndex: 100,
+    };
+  } else {
+    linkStyle = {
+      backgroundColor: color.rampFiltered
+        ? "#fff"
+        : color.grayFiltered
+        ? color.grayscale
+        : color.hex,
+    };
+  }
+
+  const toggleHover = () => {
+    setHoverState(!hoverState);
+  };
+
   return (
     <CopyToClipboard text={copyValue} onCopy={() => setCopyState(true)}>
-      <span
+      <div
         className={color.rampFiltered ? "dot" : "dot hover-target"}
-        style={{
-          backgroundColor: color.rampFiltered
-            ? "#fff"
-            : color.grayFiltered
-            ? color.grayscale
-            : color.hex,
-        }}
+        style={linkStyle}
         data-clipboard-text={color.hex}
         data-tip={color.rampFiltered ? "" : tip}
         data-multiline="true"
         data-for="grid-tooltip"
-      />
+        onMouseEnter={toggleHover}
+        onMouseLeave={toggleHover}
+      >
+        <span className="label"></span>
+      </div>
     </CopyToClipboard>
   );
 }

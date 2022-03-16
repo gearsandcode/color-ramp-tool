@@ -1,0 +1,42 @@
+.dot-grid {
+  padding: 48px;
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: repeat(101, 0.625rem);
+  grid-auto-rows: minmax(0.625rem, auto);
+}
+.label-grid {
+  padding: 0 48px;
+  width: 1010px;
+}
+
+.dot-grid:before {
+  transform: translate(0.5em, -2em);
+  position: absolute;
+  content: "S: 0";
+}
+
+.dot-grid:after {
+  transform: translate(60em, -2em);
+  position: absolute;
+  content: "S: 100";
+}
+
+.dot:first-child .label:before {
+  content: "L: 100";
+  display: block;
+  transform: translate(-3.5em, 0);
+  position: relative;
+  width: 64px;
+  top: 0;
+  left: 0px;
+}
+.dot:last-child .label:before {
+  content: "L: 0";
+  display: block;
+  transform: translate(-65em, -0.5em);
+  position: relative;
+  width: 64px;
+  top: 0;
+  left: 0;
+}

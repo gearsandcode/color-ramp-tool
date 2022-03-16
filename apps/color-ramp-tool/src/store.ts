@@ -4,6 +4,12 @@ import hueReducer from "./features/Hue/HueSlice";
 import gridReducer from "./features/DotGrid/DotGridSlice";
 
 export const store = configureStore({
+  // Remove timeout errors because the grid object is so big (10000 objects)
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      immutableCheck: false,
+      serializableCheck: false,
+    }),
   reducer: {
     ramp: rampReducer,
     hue: hueReducer,

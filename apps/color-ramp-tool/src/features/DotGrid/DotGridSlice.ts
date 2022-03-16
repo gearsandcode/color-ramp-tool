@@ -11,11 +11,13 @@ export type TGrid = {
 
 export type TGridState = {
   grayscaleFilter?: boolean;
+  wcagFilter?: boolean;
   list: TGrid[];
 };
 
 const initialState = {
   grayscaleFilter: false,
+  wcagFilter: false,
   list: [],
 } as TGridState;
 
@@ -71,6 +73,12 @@ export const DotGridSlice = createSlice({
         grayscaleFilter: !state.grayscaleFilter,
       };
     },
+    toggleWcag(state) {
+      return {
+        ...state,
+        wcagFilter: !state.wcagFilter,
+      };
+    },
   },
 });
 
@@ -90,5 +98,6 @@ export const {
   toggleGrayscale,
   applyGrayscaleFilter,
   removeGrayscaleFilter,
+  toggleWcag,
 } = DotGridSlice.actions;
 export default DotGridSlice.reducer;
