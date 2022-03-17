@@ -121,7 +121,7 @@ export const RampControls = () => {
           startIcon={<SegmentIcon />}
           endIcon={<KeyboardArrowDownIcon />}
         >
-          Ramps
+          Color Ramps
         </Button>
         <Menu
           id="basic-menu"
@@ -138,13 +138,15 @@ export const RampControls = () => {
                 control={
                   <Switch onChange={handleRampToggle} checked={rampsActive} />
                 }
-                label="Apply ramps"
+                label="Color ramp filter"
               />
             </FormGroup>
           </MenuItem>
-          <MenuItem onClick={handleClickOpen}>View / modify ramps</MenuItem>
+          <MenuItem onClick={handleClickOpen}>
+            View / modify filter values
+          </MenuItem>
           <MenuItem onClick={handleConfirmOpen}>
-            Reset ramps to default values
+            Reset filter values to defaults
           </MenuItem>
         </Menu>
       </div>
