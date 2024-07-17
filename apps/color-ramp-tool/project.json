@@ -22,22 +22,6 @@
         "styles": [],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
-      },
-      "configurations": {
-        "production": {
-          "fileReplacements": [
-            {
-              "replace": "apps/color-ramp-tool/src/environments/environment.ts",
-              "with": "apps/color-ramp-tool/src/environments/environment.prod.ts"
-            }
-          ],
-          "optimization": true,
-          "outputHashing": "all",
-          "sourceMap": false,
-          "namedChunks": false,
-          "extractLicenses": true,
-          "vendorChunk": false
-        }
       }
     },
     "serve": {

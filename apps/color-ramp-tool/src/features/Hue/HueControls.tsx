@@ -8,12 +8,12 @@ import DialogTitle from "@mui/material/DialogTitle";
 import CloseIcon from "@mui/icons-material/Close";
 import ExposureIcon from "@mui/icons-material/Exposure";
 import IconButton from "@mui/material/IconButton";
-import { HuePicker } from "react-color";
+import { ColorResult, HuePicker } from "react-color";
 
 import { useSelector, useDispatch, TypedUseSelectorHook } from "react-redux";
 
 import { selectHue, updateHue } from "./HueSlice";
-import { applyRampFilter, updateGrid } from "../DotGrid/DotGridSlice";
+import { updateGrid } from "../DotGrid/DotGridSlice";
 import { RootState } from "../../store";
 
 const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
@@ -34,6 +34,14 @@ export default function HueControls() {
     dispatch(updateHue(hueFormValue));
     handleClose();
   };
+
+  const handleChangeComplete = (color: ColorResult) => {
+    setHueFormValue(Math.round(color.hsl?.h).toString());
+  }
+
+  const handleformChange = (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setHueFormValue(e.currentTarget.value);
+  }
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -88,7 +96,7 @@ export default function HueControls() {
               fullWidth
               aria-label="Update hue"
               variant="outlined"
-              onChange={(e) => setHueFormValue(e.target.value)}
+              onChange={(e) => handleformChange(e)}
               value={hueFormValue}
               inputProps={{
                 step: 1,
@@ -98,7 +106,7 @@ export default function HueControls() {
               }}
             />
 
-            <HuePicker color={hueFormValue}></HuePicker>
+            <HuePicker color={hueFormValue} onChangeComplete={ handleChangeComplete }></HuePicker>
           </DialogContent>
           <DialogActions>
             <Button variant="contained" type="submit">
