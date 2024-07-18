@@ -1,11 +1,4 @@
 {
-  "npmScope": "color-ramp-tool",
-  "affected": {
-    "defaultBase": "main"
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
   "implicitDependencies": {
     "package.json": {
       "dependencies": "*",
@@ -16,9 +9,7 @@
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
+      "options": {}
     }
   },
   "targetDependencies": {
@@ -45,5 +36,20 @@
       }
     }
   },
-  "defaultProject": "color-ramp-tool"
+  "defaultProject": "color-ramp-tool",
+  "targetDefaults": {
+    "build": {
+      "cache": true
+    },
+    "lint": {
+      "cache": true
+    },
+    "test": {
+      "cache": true
+    },
+    "e2e": {
+      "cache": true
+    }
+  },
+  "defaultBase": "main"
 }

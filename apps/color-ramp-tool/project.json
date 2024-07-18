@@ -1,11 +1,15 @@
 {
-  "root": "apps/color-ramp-tool",
+  "name": "color-ramp-tool",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/color-ramp-tool/src",
   "projectType": "application",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nrwl/web:webpack",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
@@ -39,19 +43,24 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/color-ramp-tool/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "apps/color-ramp-tool/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/color-ramp-tool"],
+      "outputs": [
+        "{workspaceRoot}/coverage/apps/color-ramp-tool"
+      ],
       "options": {
         "jestConfig": "apps/color-ramp-tool/jest.config.js",
         "passWithNoTests": true
       }
     }
-  },
-  "tags": []
+  }
 }
