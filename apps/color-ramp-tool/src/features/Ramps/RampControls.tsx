@@ -38,7 +38,7 @@ const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
 export const RampControls = () => {
   const SRamps = useTypedSelector(selectRampList);
   const SRampsActive = useTypedSelector(selectRampActive);
-  let rampList = SRamps;
+  const rampList = SRamps;
 
   const [open, setOpen] = React.useState(false);
   const [rampsActive, setRampsActive] = React.useState(false);

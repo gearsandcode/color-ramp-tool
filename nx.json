@@ -6,12 +6,6 @@
     },
     ".eslintrc.json": "*"
   },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {}
-    }
-  },
   "targetDependencies": {
     "build": [
       {
@@ -26,6 +20,21 @@
         "style": "@emotion/styled",
         "linter": "eslint",
         "babel": true
+      },
+      "component": {
+        "style": "@emotion/styled"
+      },
+      "library": {
+        "style": "@emotion/styled",
+        "linter": "eslint"
+      }
+    },
+    "@nx/react": {
+      "application": {
+        "babel": true,
+        "style": "@emotion/styled",
+        "linter": "eslint",
+        "bundler": "vite"
       },
       "component": {
         "style": "@emotion/styled"
@@ -51,5 +60,29 @@
       "cache": true
     }
   },
-  "defaultBase": "main"
+  "defaultBase": "main",
+  "plugins": [
+    {
+      "plugin": "@nx/vite/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "testTargetName": "test",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview",
+        "serveStaticTargetName": "serve-static"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "plugin": "@nx/playwright/plugin",
+      "options": {
+        "targetName": "e2e"
+      }
+    }
+  ]
 }

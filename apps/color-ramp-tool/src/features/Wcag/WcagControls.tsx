@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -10,26 +9,19 @@ import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
 import IconButton from "@mui/material/IconButton";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
-import { useSelector, useDispatch, TypedUseSelectorHook } from "react-redux";
-
-import { selectWcag, updateWcag } from "./WcagSlice";
-import { RootState } from "../../store";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import { Box, Divider, Typography } from "@mui/material";
-import { WcagItem } from "./WcagItem";
+// import { WcagItem } from "./WcagItem";
 
-const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
+// const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 export default function WcagControls() {
-  const dispatch = useDispatch();
-  const wcag = useTypedSelector(selectWcag);
+  // const dispatch = useDispatch();
+  // const wcag = useTypedSelector(selectWcag);
 
   // useEffect(() => {
   //   dispatch(updateGrid(hue.hueValue));
@@ -131,7 +123,7 @@ export default function WcagControls() {
         <form onSubmit={(e) => onSubmit(e)}>
           <DialogContent>
             <Box component="form" sx={{ display: "flex", flexWrap: "wrap" }}>
-              <WcagItem></WcagItem>
+              {/* <WcagItem></WcagItem> */}
             </Box>
           </DialogContent>
           <DialogActions>

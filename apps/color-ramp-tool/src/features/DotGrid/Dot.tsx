@@ -2,13 +2,20 @@ import React from "react";
 import { IColor } from "../../util/generateColor";
 import { grayScaleLab, grayScaleRgb } from "../../util/grayScaleHex";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+// import Snackbar from '@mui/material/Snackbar';
+import { SnackbarProvider, enqueueSnackbar } from 'notistack'
 
 import "./Dot.scss";
 
 function Dot({ color }: { color: IColor }) {
   const [copyValue] = React.useState(color.hex);
-  const [copyState, setCopyState] = React.useState(false); // Use later for a toast
+  const [, setCopyState] = React.useState(false); // Use later for a toast
   const [hoverState, setHoverState] = React.useState(false); // Use later for a toast
+
+  const handleCopy = (status: boolean) => {
+    setCopyState(status);
+    enqueueSnackbar(`Copied: ${copyValue}`, { autoHideDuration: 1000 });
+  }
 
   const tipColor = color.grayFiltered ? color.grayscale : color.hex;
   const tipRgb = color.grayFiltered
@@ -25,7 +32,7 @@ function Dot({ color }: { color: IColor }) {
     lab(${tipLab}})
   `;
 
-  var linkStyle;
+  let linkStyle;
   if (hoverState) {
     linkStyle = {
       backgroundColor: color.rampFiltered
@@ -54,7 +61,7 @@ function Dot({ color }: { color: IColor }) {
   };
 
   return (
-    <CopyToClipboard text={copyValue} onCopy={() => setCopyState(true)}>
+    <CopyToClipboard text={copyValue} onCopy={() => handleCopy(true)}>
       <div
         className={color.rampFiltered ? "dot" : "dot hover-target"}
         style={linkStyle}
@@ -66,6 +73,7 @@ function Dot({ color }: { color: IColor }) {
         onMouseLeave={toggleHover}
       >
         <span className="label"></span>
+        <SnackbarProvider/>
       </div>
     </CopyToClipboard>
   );

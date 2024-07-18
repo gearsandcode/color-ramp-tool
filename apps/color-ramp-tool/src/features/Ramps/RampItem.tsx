@@ -35,51 +35,49 @@ export const RampItem = ({
   };
 
   return (
-    <>
-      <Grid
-        container
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Grid item>
-          <TextField
-            margin="dense"
-            size="small"
-            id="name"
-            label="Name"
-            variant="outlined"
-            onChange={(e) => updateRampName({ name: e.target.value })}
-            value={name}
-          />
-        </Grid>
-        <Grid item>
-          <TextField
-            margin="dense"
-            size="small"
-            id="lightness"
-            label="L Value"
-            variant="outlined"
-            onChange={(e) => updateRampName({ lightness: e.target.value })}
-            value={lightness}
-            inputProps={{
-              step: 1,
-              min: 0,
-              max: 100,
-              type: "number",
-            }}
-          />
-        </Grid>
-        <Grid item>
-          <IconButton
-            onClick={() => removeRampItem(ramp)}
-            color="error"
-            aria-label="Delete Ramp"
-          >
-            <DeleteIcon />
-          </IconButton>
-        </Grid>
+    <Grid
+      container
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <Grid item>
+        <TextField
+          margin="dense"
+          size="small"
+          id="name"
+          label="Name"
+          variant="outlined"
+          onChange={(e) => updateRampName({ name: e.target.value })}
+          value={name}
+        />
       </Grid>
-    </>
+      <Grid item>
+        <TextField
+          margin="dense"
+          size="small"
+          id="lightness"
+          label="L Value"
+          variant="outlined"
+          onChange={(e) => updateRampName({ lightness: e.target.value })}
+          value={lightness}
+          inputProps={{
+            step: 1,
+            min: 0,
+            max: 100,
+            type: "number",
+          }}
+        />
+      </Grid>
+      <Grid item>
+        <IconButton
+          onClick={() => removeRampItem(ramp)}
+          color="error"
+          aria-label="Delete Ramp"
+        >
+          <DeleteIcon />
+        </IconButton>
+      </Grid>
+    </Grid>
   );
 };

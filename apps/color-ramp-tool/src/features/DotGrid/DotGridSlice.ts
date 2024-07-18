@@ -29,7 +29,7 @@ export const DotGridSlice = createSlice({
       Object.assign(state, initialState);
     },
     updateGrid(state, action: PayloadAction<string>) {
-      let list = [];
+      const list = [];
 
       for (let v = 100; v >= 0; v--) {
         for (let s = 0; s <= 100; s++) {

@@ -3,7 +3,6 @@ import "./App.scss";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 
 import { DotGrid } from "../features/DotGrid/DotGrid";
 import { Controls } from "../features/Controls/Controls";

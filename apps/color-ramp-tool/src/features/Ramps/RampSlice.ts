@@ -51,7 +51,7 @@ export const rampsSlice = createSlice({
     },
     updateRamp(state, action: PayloadAction<TRamp>) {
       const { id } = action.payload;
-      let index = state.list.findIndex((ramp) => ramp.id === id);
+      const index = state.list.findIndex((ramp) => ramp.id === id);
       state.list[index] = action.payload;
     },
     updateRamps(state, action: PayloadAction<TRamp[]>) {

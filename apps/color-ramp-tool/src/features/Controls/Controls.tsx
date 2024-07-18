@@ -15,10 +15,10 @@ export const Controls = () => {
       <Grid item>
         <RampControls></RampControls>
       </Grid>
-      <Divider style={{ borderWidth: "1px" }} variant="middle" />
+      {/* <Divider style={{ borderWidth: "1px" }} variant="middle" />
       <Grid item>
         <WcagControls></WcagControls>
-      </Grid>
+      </Grid> */}
       <Divider style={{ borderWidth: "1px" }} variant="middle" />
       <Grid item>
         <DotGridControls></DotGridControls>

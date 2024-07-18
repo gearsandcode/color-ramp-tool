@@ -13,7 +13,7 @@ export const AddRamp = () => {
   const [lightness, setLightness] = useState("");
   const dispatch = useDispatch();
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setName("");
     setLightness("");

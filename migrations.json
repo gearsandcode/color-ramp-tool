@@ -155,70 +155,6 @@
     {
       "cli": "nx",
       "version": "16.0.0-beta.1",
-      "description": "Replace @nrwl/eslint-plugin-nx with @nx/eslint-plugin",
-      "implementation": "./src/migrations/update-16-0-0-add-nx-packages/update-16-0-0-add-nx-packages",
-      "package": "@nrwl/eslint-plugin-nx",
-      "name": "update-16-0-0-add-nx-packages"
-    },
-    {
-      "cli": "nx",
-      "version": "17.2.6-beta.1",
-      "description": "Rename workspace rules from @nx/workspace/name to @nx/workspace-name",
-      "implementation": "./src/migrations/update-17-2-6-rename-workspace-rules/rename-workspace-rules",
-      "package": "@nrwl/eslint-plugin-nx",
-      "name": "update-17-2-6-rename-workspace-rules"
-    },
-    {
-      "cli": "nx",
-      "version": "19.1.0-beta.6",
-      "description": "Migrate no-extra-semi rules into user config, out of nx extendable configs",
-      "implementation": "./src/migrations/update-19-1-0-migrate-no-extra-semi/migrate-no-extra-semi",
-      "package": "@nrwl/eslint-plugin-nx",
-      "name": "update-19-1-0-rename-no-extra-semi"
-    },
-    {
-      "cli": "nx",
-      "version": "16.0.0-beta.1",
-      "description": "Replace @nrwl/cypress with @nx/cypress",
-      "implementation": "./src/migrations/update-16-0-0-add-nx-packages/update-16-0-0-add-nx-packages",
-      "package": "@nrwl/cypress",
-      "name": "update-16-0-0-add-nx-packages"
-    },
-    {
-      "cli": "nx",
-      "version": "16.2.0-beta.0",
-      "description": "Normalize tsconfig.cy.json files to be located at '<projectRoot>/cypress/tsconfig.json'",
-      "implementation": "./src/migrations/update-16-2-0/update-cy-tsconfig",
-      "package": "@nrwl/cypress",
-      "name": "update-16-2-0-normalize-tsconfigs"
-    },
-    {
-      "cli": "nx",
-      "version": "16.4.0-beta.10",
-      "description": "Remove tsconfig.e2e.json and add settings to project tsconfig.json. tsConfigs executor option is now deprecated. The project level tsconfig.json file should be used instead.",
-      "implementation": "./src/migrations/update-16-4-0/tsconfig-sourcemaps",
-      "package": "@nrwl/cypress",
-      "name": "update-16-3-0-remove-old-tsconfigs"
-    },
-    {
-      "cli": "nx",
-      "version": "16.8.0-beta.4",
-      "description": "Update to Cypress v13. Most noteable change is video recording is off by default. This migration will only update if the workspace is already on Cypress v12. https://docs.cypress.io/guides/references/migration-guide#Migrating-to-Cypress-130",
-      "implementation": "./src/migrations/update-16-8-0/cypress-13",
-      "package": "@nrwl/cypress",
-      "name": "update-16-8-0-cypress-13"
-    },
-    {
-      "cli": "nx",
-      "version": "18.1.0-beta.3",
-      "description": "Update to Cypress ^13.6.6 if the workspace is using Cypress v13 to ensure workspaces don't use v13.6.5 which has an issue when verifying Cypress.",
-      "implementation": "./src/migrations/update-18-1-0/update-cypress-version-13-6-6",
-      "package": "@nrwl/cypress",
-      "name": "update-cypress-version-13-6-6"
-    },
-    {
-      "cli": "nx",
-      "version": "16.0.0-beta.1",
       "description": "Replace @nrwl/linter with @nx/linter",
       "implementation": "./src/migrations/update-16-0-0-add-nx-packages/update-16-0-0-add-nx-packages",
       "package": "@nrwl/linter",
@@ -274,6 +210,70 @@
       "implementation": "./src/migrations/update-16-0-0-update-executors/update-16-0-0-update-executors",
       "package": "@nrwl/web",
       "name": "update-16-0-0-update-executors"
+    },
+    {
+      "cli": "nx",
+      "version": "16.0.0-beta.1",
+      "description": "Replace @nrwl/cypress with @nx/cypress",
+      "implementation": "./src/migrations/update-16-0-0-add-nx-packages/update-16-0-0-add-nx-packages",
+      "package": "@nrwl/cypress",
+      "name": "update-16-0-0-add-nx-packages"
+    },
+    {
+      "cli": "nx",
+      "version": "16.2.0-beta.0",
+      "description": "Normalize tsconfig.cy.json files to be located at '<projectRoot>/cypress/tsconfig.json'",
+      "implementation": "./src/migrations/update-16-2-0/update-cy-tsconfig",
+      "package": "@nrwl/cypress",
+      "name": "update-16-2-0-normalize-tsconfigs"
+    },
+    {
+      "cli": "nx",
+      "version": "16.4.0-beta.10",
+      "description": "Remove tsconfig.e2e.json and add settings to project tsconfig.json. tsConfigs executor option is now deprecated. The project level tsconfig.json file should be used instead.",
+      "implementation": "./src/migrations/update-16-4-0/tsconfig-sourcemaps",
+      "package": "@nrwl/cypress",
+      "name": "update-16-3-0-remove-old-tsconfigs"
+    },
+    {
+      "cli": "nx",
+      "version": "16.8.0-beta.4",
+      "description": "Update to Cypress v13. Most noteable change is video recording is off by default. This migration will only update if the workspace is already on Cypress v12. https://docs.cypress.io/guides/references/migration-guide#Migrating-to-Cypress-130",
+      "implementation": "./src/migrations/update-16-8-0/cypress-13",
+      "package": "@nrwl/cypress",
+      "name": "update-16-8-0-cypress-13"
+    },
+    {
+      "cli": "nx",
+      "version": "18.1.0-beta.3",
+      "description": "Update to Cypress ^13.6.6 if the workspace is using Cypress v13 to ensure workspaces don't use v13.6.5 which has an issue when verifying Cypress.",
+      "implementation": "./src/migrations/update-18-1-0/update-cypress-version-13-6-6",
+      "package": "@nrwl/cypress",
+      "name": "update-cypress-version-13-6-6"
+    },
+    {
+      "cli": "nx",
+      "version": "16.0.0-beta.1",
+      "description": "Replace @nrwl/eslint-plugin-nx with @nx/eslint-plugin",
+      "implementation": "./src/migrations/update-16-0-0-add-nx-packages/update-16-0-0-add-nx-packages",
+      "package": "@nrwl/eslint-plugin-nx",
+      "name": "update-16-0-0-add-nx-packages"
+    },
+    {
+      "cli": "nx",
+      "version": "17.2.6-beta.1",
+      "description": "Rename workspace rules from @nx/workspace/name to @nx/workspace-name",
+      "implementation": "./src/migrations/update-17-2-6-rename-workspace-rules/rename-workspace-rules",
+      "package": "@nrwl/eslint-plugin-nx",
+      "name": "update-17-2-6-rename-workspace-rules"
+    },
+    {
+      "cli": "nx",
+      "version": "19.1.0-beta.6",
+      "description": "Migrate no-extra-semi rules into user config, out of nx extendable configs",
+      "implementation": "./src/migrations/update-19-1-0-migrate-no-extra-semi/migrate-no-extra-semi",
+      "package": "@nrwl/eslint-plugin-nx",
+      "name": "update-19-1-0-rename-no-extra-semi"
     },
     {
       "cli": "nx",
